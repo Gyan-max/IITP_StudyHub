@@ -1,233 +1,111 @@
-IITP StudyHub
+# IITP StudyHub
+
 A Centralized Academic Preparation Platform for IIT Patna Students
 
-1. Project Idea
-IITP StudyHub is a dedicated academic web platform designed exclusively for IIT Patna students to help them prepare for semester exams, quizzes, mid-semesters, end-semesters, and competitive exams. The platform aims to centralize high-quality study resources, structured roadmaps, and exam-oriented guidance in one trusted place.
-Problem Statement
-Study resources are scattered across WhatsApp groups, Google Drives, seniors’ folders, and random websites
-No single structured roadmap for subjects and semesters
-New students struggle to identify important topics and previous year question trends
-Solution
-Create a single, structured, student-centric platform that:
-Organizes subjects semester-wise
-Provides curated notes and PYQs
-Guides students with clear preparation roadmaps
+## 📁 Project Structure
 
-2. Vision & Mission
-Vision
-To become the most trusted academic companion for IIT Patna students, improving academic performance through structured learning and guidance.
-Mission
-Simplify exam preparation
-Reduce dependency on scattered resources
-Encourage peer-to-peer academic collaboration
-Build a sustainable knowledge repository for future batches
-
-3. Target Users
-Undergraduate students of IIT Patna
-First-year students needing structured guidance
-Seniors preparing for core exams
-Students preparing for competitive exams (GATE, JAM, etc.)
-
-4. Core Features (MVP)
-Phase 1 – Minimum Viable Product
-Semester-wise subject listing
-Syllabus breakdown for each subject
-Important topics highlighted
-Previous Year Question (PYQ) repository
-Curated study resources (PDFs, links)
-Simple search functionality
-
-5. Advanced Features (Planned)
-Phase 2 – Student-Centric Enhancements
-Login using IIT Patna email ID
-Bookmark topics and resources
-Progress tracking per subject
-Exam countdown and reminders
-Phase 3 – Smart & Collaborative Features
-AI-based topic recommendation
-Difficulty tagging of PYQs
-Collaborative notes and discussion forum
-Contributor system for seniors and toppers
-
-6. Technology Stack
-Frontend
-React.js with Vite
-Tailwind CSS for styling
-React Router for navigation
-Backend (Initial)
-Firebase Authentication
-Firestore database
-Firebase Storage for PDFs
-Backend (Advanced)
-Flask / FastAPI
-REST APIs
-PostgreSQL / MongoDB
-Deployment
-Vercel / Netlify (Frontend)
-Firebase / Cloud Run (Backend)
-
-7. Project Folder Structure
 ```
 IITP_StudyHub/
-│
-├── frontend/                      # React + Vite Frontend
-│   ├── public/
-│   │   ├── logo.png
-│   │   └── favicon.ico
-│   │
-│   ├── src/
-│   │   ├── assets/               # Images, icons, static files
-│   │   │   ├── images/
-│   │   │   └── icons/
-│   │   │
-│   │   ├── components/           # Reusable components
-│   │   │   ├── Navbar.jsx
-│   │   │   ├── Footer.jsx
-│   │   │   ├── SearchBar.jsx
-│   │   │   ├── SubjectCard.jsx
-│   │   │   └── ResourceCard.jsx
-│   │   │
-│   │   ├── pages/                # Page components
-│   │   │   ├── Home.jsx
-│   │   │   ├── Semesters.jsx
-│   │   │   ├── SubjectDetail.jsx
-│   │   │   ├── PYQs.jsx
-│   │   │   ├── Resources.jsx
-│   │   │   ├── Login.jsx
-│   │   │   ├── Profile.jsx
-│   │   │   └── Admin.jsx
-│   │   │
-│   │   ├── context/              # Context API for state management
-│   │   │   ├── AuthContext.jsx
-│   │   │   └── DataContext.jsx
-│   │   │
-│   │   ├── hooks/                # Custom React hooks
-│   │   │   ├── useAuth.js
-│   │   │   └── useFetch.js
-│   │   │
-│   │   ├── services/             # API calls and Firebase config
-│   │   │   ├── firebase.js
-│   │   │   ├── api.js
-│   │   │   └── auth.js
-│   │   │
-│   │   ├── utils/                # Utility functions
-│   │   │   ├── constants.js
-│   │   │   └── helpers.js
-│   │   │
-│   │   ├── styles/               # Global styles
-│   │   │   └── index.css
-│   │   │
-│   │   ├── App.jsx               # Main App component
-│   │   ├── main.jsx              # Entry point
-│   │   └── routes.jsx            # Route definitions
-│   │
-│   ├── .env                      # Environment variables
-│   ├── .gitignore
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   └── postcss.config.js
-│
-├── backend/                      # Backend API (Flask/FastAPI)
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py               # Main application file
-│   │   │
-│   │   ├── routes/               # API route handlers
-│   │   │   ├── __init__.py
-│   │   │   ├── auth.py
-│   │   │   ├── subjects.py
-│   │   │   ├── resources.py
-│   │   │   └── admin.py
-│   │   │
-│   │   ├── models/               # Database models
-│   │   │   ├── __init__.py
-│   │   │   ├── user.py
-│   │   │   ├── subject.py
-│   │   │   └── resource.py
-│   │   │
-│   │   ├── services/             # Business logic
-│   │   │   ├── __init__.py
-│   │   │   ├── auth_service.py
-│   │   │   └── resource_service.py
-│   │   │
-│   │   ├── utils/                # Utility functions
-│   │   │   ├── __init__.py
-│   │   │   └── helpers.py
-│   │   │
-│   │   └── config.py             # Configuration settings
-│   │
-│   ├── tests/                    # Unit tests
-│   │   └── test_api.py
-│   │
-│   ├── requirements.txt          # Python dependencies
-│   ├── .env                      # Environment variables
-│   ├── .gitignore
-│   └── README.md
-│
-├── database/                     # Database scripts and migrations
-│   ├── schema.sql
-│   └── seed_data.sql
-│
-├── docs/                         # Documentation
-│   ├── API.md                    # API documentation
-│   ├── SETUP.md                  # Setup instructions
-│   └── CONTRIBUTING.md           # Contribution guidelines
-│
-├── resources/                    # Study materials storage
-│   ├── notes/
-│   ├── pyqs/
-│   └── syllabus/
-│
-├── .git/                         # Git repository
-├── .gitignore                    # Global gitignore
-├── README.md                     # This file
-└── LICENSE                       # License file
+├── frontend/              # React + Vite frontend application
+├── backend/               # Backend API (to be created)
+├── docs/                  # Documentation
+├── PROJECT_OVERVIEW.md    # Detailed project requirements
+├── FRONTEND_BUILD_SUMMARY.md
+└── README.md             # This file
 ```
 
-8. System Architecture (High-Level)
-User accesses web application
-Frontend fetches data from Firebase / Backend APIs
-Authenticated users access personalized features
-Admin panel manages resources and moderation
+## 🚀 Quick Start
 
-9. Development Roadmap
-Month 1 – Foundation
-Finalize features
-Design UI wireframes
-Set up frontend project
-Firebase integration
-Month 2 – Core Development
-Subject & semester pages
-Upload and manage resources
-Implement authentication
-Month 3 – Enhancements
-Progress tracking
-Search & filters
-UI/UX improvements
-Month 4 – Advanced Features
-AI recommendations
-Discussion forum
-Analytics dashboard
+### Prerequisites
+- Node.js 18+
+- npm 9+
+- Python 3.9+ (for backend, when created)
 
-10. Impact & Benefits
-For Students
-Saves time
-Clear preparation path
-Reduced exam stress
-For Institute
-Academic consistency
-Knowledge preservation
-Improved overall performance
+### Frontend Development
 
-11. Scalability & Future Scope
-Expansion to other IITs
-GATE & competitive exam sections
-Mobile app
-Mentorship and doubt-solving sessions
+```bash
+# Navigate to frontend
+cd frontend
 
+# Install dependencies
+npm install
 
-12. Conclusion
-IITP StudyHub is not just a website but a long-term academic ecosystem designed to empower students with clarity, structure, and confidence. With proper execution, it can significantly improve academic preparation and student outcomes at IIT Patna.
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+```
+
+### Backend Development (Coming Soon)
+
+```bash
+# Navigate to backend
+cd backend
+
+# Setup instructions will be added here
+```
+
+## 📦 Tech Stack
+
+### Frontend
+- **React 18** - UI Library
+- **Vite** - Build Tool & Dev Server
+- **React Router v6** - Client-side routing
+- **Tailwind CSS v3** - Styling
+- **Lucide React** - Icons
+
+### Backend (Planned)
+- **Flask/FastAPI** (Python) or **Express** (Node.js)
+- **PostgreSQL** or **MongoDB** - Database
+- **Firebase** - Authentication & Storage
+
+## 🔗 Quick Links
+
+- **Frontend**: http://localhost:5173
+- **Backend API**: http://localhost:3000 (when running)
+- **Project Overview**: [PROJECT_OVERVIEW.md](PROJECT_OVERVIEW.md)
+- **Frontend Docs**: [frontend/README.md](frontend/README.md)
+
+## 📚 Features
+
+### Current (MVP)
+✅ Responsive UI with Tailwind CSS
+✅ Semester-wise subject browsing
+✅ Subject detail pages
+✅ PYQ filtering and viewing
+✅ Resources page
+✅ Login interface
+
+### Coming Soon
+- Backend API
+- User authentication
+- Database integration
+- File upload/download
+- Search functionality
+- Bookmark system
+- Admin panel
+
+## 🏗️ Development
+
+### Frontend
+See [frontend/README.md](frontend/README.md) for detailed frontend documentation.
+
+### Backend
+Backend setup guide will be added soon.
+
+## 📝 Contributing
+
+1. Create a feature branch
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## 📄 License
+
+This project is for IIT Patna students only.
+
+---
+
+Built with ❤️ for IIT Patna students
 

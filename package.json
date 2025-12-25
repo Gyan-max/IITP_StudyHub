@@ -1,0 +1,11 @@
+{
+  "name": "iitp_studyhub",
+  "version": "1.0.0",
+  "description": "IITP StudyHub A Centralized Academic Preparation Platform for IIT Patna Students",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
